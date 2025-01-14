@@ -14,7 +14,7 @@
 
   <script>
     // 1. JavaScript 키 초기화
-    Kakao.init('2d33e6eb040e3add5ed245945d57544a'); // YOUR_JAVASCRIPT_KEY를 복사한 JavaScript 키로 교체
+    Kakao.init('2d33e6eb040e3add5ed245945d57544a'); // 발급받은 JavaScript 키를 사용
     console.log(Kakao.isInitialized()); // 초기화 여부 확인 (true면 성공)
 
     // 2. 카카오톡 링크 함수 정의
@@ -24,7 +24,7 @@
         content: {
           title: '총 상금 1,000만원! 가져가세요!', // 메시지 제목
           description: '30초에 1,000원씩~', // 메시지 설명
-          imageUrl: 'https://imgur.com/wamd9qs', // 이미지 링크 (인터넷에서 접근 가능한 URL)
+          imageUrl: 'https://i.imgur.com/wamd9qs.jpg', // 이미지 URL (올바른 확장자 포함)
           link: {
             mobileWebUrl: 'https://ko.surveymonkey.com/r/NJKSCS2', // 모바일 링크
             webUrl: 'https://ko.surveymonkey.com/r/NJKSCS2', // PC 링크
