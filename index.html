@@ -18,14 +18,14 @@
     Kakao.init('2d33e6eb040e3add5ed245945d57544a'); // 발급받은 JavaScript 키를 사용
     console.log(Kakao.isInitialized()); // 초기화 여부 확인 (true면 성공)
 
-    // 2. 이벤트 참여하기 링크
+    // 2. 카카오톡 링크 함수 정의 (이벤트 참여하기)
     function sendKakaoLink() {
       Kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
           title: '총 상금 1,000만원! 가져가세요!',
           description: '30초에 1,000원씩~',
-          imageUrl: 'https://i.imgur.com/wamd9qs.jpg',
+          imageUrl: 'https://i.imgur.com/wamd9qs.jpg', // 이미지 URL
           link: {
             mobileWebUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc9NyUdjouDN4jBcCF7_Ju3Dcb0Z5nwoLGQxYvkQVedH8ZrXw/viewform?usp=header',
             webUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc9NyUdjouDN4jBcCF7_Ju3Dcb0Z5nwoLGQxYvkQVedH8ZrXw/viewform?usp=header',
@@ -45,12 +45,30 @@
 
     // 3. 친구에게 전달하기 링크
     function shareToFriend() {
-      Kakao.Link.sendScrap({
-        requestUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc9NyUdjouDN4jBcCF7_Ju3Dcb0Z5nwoLGQxYvkQVedH8ZrXw/viewform?usp=header'
+      Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '친구에게 공유하세요!',
+          description: '이벤트 소식을 친구와 함께 나눠보세요.',
+          imageUrl: 'https://i.imgur.com/wamd9qs.jpg', // 이미지 URL
+          link: {
+            mobileWebUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc9NyUdjouDN4jBcCF7_Ju3Dcb0Z5nwoLGQxYvkQVedH8ZrXw/viewform?usp=header',
+            webUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc9NyUdjouDN4jBcCF7_Ju3Dcb0Z5nwoLGQxYvkQVedH8ZrXw/viewform?usp=header',
+          },
+        },
+        buttons: [
+          {
+            title: '친구에게 전달하기',
+            link: {
+              mobileWebUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc9NyUdjouDN4jBcCF7_Ju3Dcb0Z5nwoLGQxYvkQVedH8ZrXw/viewform?usp=header',
+              webUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSc9NyUdjouDN4jBcCF7_Ju3Dcb0Z5nwoLGQxYvkQVedH8ZrXw/viewform?usp=header',
+            },
+          },
+        ],
       });
     }
 
-    // 4. 버튼 클릭 이벤트 연결
+    // 4. 버튼 클릭 이벤트에 함수 연결
     document.getElementById('kakao-link-btn').addEventListener('click', sendKakaoLink);
     document.getElementById('kakao-share-btn').addEventListener('click', shareToFriend);
   </script>
